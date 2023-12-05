@@ -13,7 +13,7 @@ export const Search = () => {
         keyword: searchKeyword,
       },
       headers: {
-        'X-RapidAPI-Key': '90ca04d3bdmsh93ceba09b08d4e6p1588a4jsnc6e8b9e4488d',
+        'X-RapidAPI-Key': 'bb54ea9497msh3dcb2dde67b422fp1c7e37jsn146b956453a2',
         'X-RapidAPI-Host': 'wayfair.p.rapidapi.com',
       },
     };

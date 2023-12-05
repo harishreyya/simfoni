@@ -1,24 +1,21 @@
 import { AllItems } from "./allitems"
 import { Header } from "./header"
-// import  {Search } from "./search"
+import  {Search } from "./search"
 import { Products } from "./Product"
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Categories } from "./categories"
+import { ParentSharing } from "./parentSharing"
 
 
 export const HomePage = ()=>{
     return <div>
-       <Header/>
+       
         {/* <Search/> */}
            {/* <Products/> */}
+         {/* <ParentSharing/> */}
            <div className="home-body">
-            <BrowserRouter>
-            <Routes>
-        <Route path='/products' element={<Products/> }/>
-      </Routes>
             
-            </BrowserRouter>
            <AllItems/>
            </div>
-           
+           {/* <Categories/> */}
     </div>
 }

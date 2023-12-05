@@ -63,6 +63,10 @@ input::placeholder {
   .home-body{
     padding: 20px;
   }
+
+  .d-none{
+    display: none;
+  }
 /* -------header------- */
 .header-wrap{
     height: 50px;

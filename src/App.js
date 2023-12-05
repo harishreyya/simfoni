@@ -3,18 +3,21 @@ import './App.css'
 import { Search } from "./components/search";
 import { Products } from "./components/Product";
 import { HomePage } from "./components/homepage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <div>
-        {/* <Categories/> */}
+      
+      {/* <Header/> */}
+      <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/search" element={<Search/>}/>
+      <Route path="/categories" element={<Categories/>}/>
 
-        {/* <Search/> */}
-
-        {/* <Products/> */}
-      </div>
-      <HomePage/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }

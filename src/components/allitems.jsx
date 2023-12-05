@@ -14,11 +14,12 @@ export const AllItems = () => {
         method: 'GET',
         url: 'https://wayfair.p.rapidapi.com/products/list',
         params: {
-          itemsPerPage: '10',
+          categoryId:"45974",
+          itemsPerPage: '40',
           page: '1',
         },
         headers: {
-          'X-RapidAPI-Key': '90ca04d3bdmsh93ceba09b08d4e6p1588a4jsnc6e8b9e4488d',
+          'X-RapidAPI-Key': 'bb54ea9497msh3dcb2dde67b422fp1c7e37jsn146b956453a2',
           'X-RapidAPI-Host': 'wayfair.p.rapidapi.com',
         },
       };
@@ -37,7 +38,7 @@ export const AllItems = () => {
     getProducts();
   }, [page]);
 
-  const displayedProducts = products.slice(0, 10);
+  const displayedProducts = products.slice(0, 48);
 
   return (
     <div>
