@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -52,6 +53,7 @@ export const Categories = ({ onSelectCategory }) => {
       <div>
         <Slider {...settings}>
           {categories.map((category) => (
+            
             <div key={category.categoryId} onClick={() => handleCategoryClick(category.categoryId)}>
               <div className='image-placeholder'>
                 <p>{category.displayName}</p>
@@ -59,6 +61,7 @@ export const Categories = ({ onSelectCategory }) => {
               </div>
               <p>{category.displayName}</p>
             </div>
+            
           ))}
         </Slider>
       </div>

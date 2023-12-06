@@ -9,13 +9,11 @@ import { ParentSharing } from "./parentSharing"
 export const HomePage = ()=>{
     return <div>
        
-        {/* <Search/> */}
-           {/* <Products/> */}
-         {/* <ParentSharing/> */}
+       
            <div className="home-body">
+            <ParentSharing/>
             
            <AllItems/>
            </div>
-           {/* <Categories/> */}
     </div>
 }

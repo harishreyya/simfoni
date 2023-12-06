@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export const AllItems = () => {
   const [products, setProducts] = useState([]);
@@ -38,11 +39,11 @@ export const AllItems = () => {
     getProducts();
   }, [page]);
 
-  const displayedProducts = products.slice(0, 48);
+  const displayedProducts = products.slice(0, 10);
 
   return (
     <div>
-    <div className='see-more flex'>See more &#10148;</div> 
+   <Link to={"/products"} ><div className='see-more flex'>See more &#10148;</div> </Link> 
       <h2>All items</h2>
       
       <div className='search-result-wrap'>

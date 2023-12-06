@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export const CatergoryProducts = ({ categoryId }) => {
   const [products, setProducts] = useState([]);
@@ -63,6 +64,8 @@ export const CatergoryProducts = ({ categoryId }) => {
       <h2>searched result</h2>
       <div className='search-result-wrap'>
         {products.map((product, index) => (
+        
+          <a href={product.url}>
           <div className='search-result-card' key={index}>
           <img src="https://images.pexels.com/photos/1148955/pexels-photo-1148955.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
           <p className='display-name'><b>{product.name}</b></p>
@@ -73,6 +76,7 @@ export const CatergoryProducts = ({ categoryId }) => {
           <div><b>Delivery by:</b> 24 dec 2023</div>
           <button className='button flex cart'>Add to Cart</button>
         </div>
+        </a>
         ))}
         {loading && <p>Loading...</p>}
       </div>
