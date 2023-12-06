@@ -5,20 +5,22 @@ import { Search } from "./components/search";
 import { Products } from "./components/Product";
 import { HomePage } from "./components/homepage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CatergoryProducts } from "./components/categoryproducts";
+
+import { TopMenu } from "./components/TopMenu";
+import { ParentSharing } from "./components/parentSharing";
 
 function App() {
   return (
     <div className="App">
-      
+       <BrowserRouter>
       <Header/>
-      <BrowserRouter>
+      <TopMenu/>
+     
       <Routes>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/search" element={<Search/>}/>
-      <Route path="/categories" element={<Categories/>}/>
+      <Route path="/categories" element={<ParentSharing/>}/>
       <Route path="/products" element={<Products/>}/>
-      <Route path="/productCategories" element={<CatergoryProducts/>}/>
 
       </Routes>
       </BrowserRouter>

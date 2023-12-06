@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { LoadingSpinner } from './LoadingSpinner';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
  
   const fetchData = async (searchKeyword) => {
+    setLoading(true);
     const options = {
       method: 'GET',
       url: 'https://wayfair.p.rapidapi.com/products/search',
@@ -13,7 +16,7 @@ export const Search = () => {
         keyword: searchKeyword,
       },
       headers: {
-        'X-RapidAPI-Key': 'bb54ea9497msh3dcb2dde67b422fp1c7e37jsn146b956453a2',
+        'X-RapidAPI-Key': '92a86a1fd9msh31181e91e5f8351p100809jsndc3de2c0bed0',
         'X-RapidAPI-Host': 'wayfair.p.rapidapi.com',
       },
     };
@@ -21,13 +24,17 @@ export const Search = () => {
     try {
       const response = await axios.request(options);
       setSearchResults(response.data.response.categoryAppData.categories);
-      console.log(response.data.response.categoryAppData.categories)
     } catch (error) {
       console.error(error);
+      alert("Result Not found")
+    } finally {
+      setLoading(false);
+      
     }
   };
 
   const handleSearch = () => {
+    setSearchResults([])
     fetchData(searchTerm);
   };
 
@@ -35,7 +42,7 @@ export const Search = () => {
     <div>
       <div className='search-wrap'>
         <br />
-        <div className='flex'>
+        <div className='flex search-input-wrap'>
       <input
       className='search-bar'
         type="text"
@@ -45,9 +52,10 @@ export const Search = () => {
       />
       <button className='button flex' onClick={handleSearch}>Search</button>
       </div>
+      <br />
       </div>
-
-      <div className='search-result-wrap'>
+    
+   <div className='search-result-wrap'>
       {Object.keys(searchResults).map((categoryId,index) => (
           <div className='search-result-card' key={index}>
             <img src="https://images.pexels.com/photos/5760872/pexels-photo-5760872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
@@ -61,6 +69,8 @@ export const Search = () => {
           </div>
         ))}
         </div>
+       
+        {loading && <LoadingSpinner />}
     </div>
   );
 };
